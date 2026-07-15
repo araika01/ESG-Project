@@ -1,0 +1,1 @@
+import psycopg2; conn = psycopg2.connect(dbname='tempwork_db', user='tempwork_user', password='tempwork_pass', host='localhost'); conn.autocommit = True; cur = conn.cursor(); cur.execute('DROP SCHEMA public CASCADE; CREATE SCHEMA public; GRANT ALL ON SCHEMA public TO tempwork_user;'); print('Done')
