@@ -23907,3 +23907,4 @@ INFO 2026-07-16 13:12:31,915 autoreload 18404 20308 Watching for file changes wi
 INFO 2026-07-16 13:12:35,618 server 18404 11172 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
 INFO 2026-07-16 13:12:35,619 server 18404 11172 Configuring endpoint tcp:port=8000:interface=127.0.0.1
 INFO 2026-07-16 13:12:35,622 server 18404 11172 Listening on TCP address 127.0.0.1:8000
+INFO 2026-07-16 13:38:09,898 autoreload 26908 24288 Watching for file changes with StatReloader
