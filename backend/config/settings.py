@@ -15,6 +15,9 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 
 INSTALLED_APPS = [
+    'daphne',
+    'channels',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,8 +30,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     'django_filters',
-    'django_cleanup',
-    'drf_yasg',
+
 
     'apps.accounts',
     'apps.vacancies',
@@ -37,7 +39,16 @@ INSTALLED_APPS = [
     'apps.notifications',
     'apps.reviews',
     'apps.messaging',
+    'apps.matching',
 ]
+
+ASGI_APPLICATION = 'config.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
 
 
 MIDDLEWARE = [

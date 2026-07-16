@@ -12,7 +12,7 @@ urlpatterns = [
     path('api/', include('apps.reviews.urls')),
     path('api/', include('apps.notifications.urls')),
     path('api/', include('apps.messaging.urls')),
-
+    path('api/', include('apps.matching.urls')),
 ]
 
 if settings.DEBUG:

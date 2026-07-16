@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import VacanciesPage from './pages/VacanciesPage';
@@ -12,11 +12,13 @@ import ReviewsPage from './pages/ReviewsPage';
 import ResumesPage from './pages/ResumesPage';
 import CreateResumePage from './pages/CreateResumePage';
 import MessagesPage from './pages/MessagesPage';
+import MatchWidget from './components/MatchWidget';
 
-function App() {
+// Компонент, который рендерит виджет только если пользователь авторизован
+function AppContent() {
+  const { user } = useAuth();
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -31,7 +33,16 @@ function App() {
           <Route path="/messages" element={<MessagesPage />} />
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
-      </BrowserRouter>
+    
+      {user && <MatchWidget />}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
     </AuthProvider>
   );
 }
