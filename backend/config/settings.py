@@ -119,9 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
             'min_length': 8,
         }
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
+    #{
+    #   'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    #},
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
@@ -151,13 +151,6 @@ REST_FRAMEWORK = {
         'anon': '10000/hour',
         'user': '5000/hour',
     },
-    'DEFAULT_PAGINATION_CLASS': 'apps.core.pagination.CustomPagination',
-    'PAGE_SIZE': 20,
-    'EXCEPTION_HANDLER': 'apps.core.exceptions.custom_exception_handler',
-    'DEFAULT_THROTTLE_CLASSES': [
-        'apps.core.throttling.CustomAnonRateThrottle',
-        'apps.core.throttling.CustomUserRateThrottle',
-    ],
     'EXCEPTION_HANDLER': 'apps.core.exceptions.custom_exception_handler',
 }
 

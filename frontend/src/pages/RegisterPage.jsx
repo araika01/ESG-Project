@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 function RegisterPage() {
   const [formData, setFormData] = useState({
     email: '', password: '', password_confirm: '',
-    username: '', first_name: '', last_name: '', role: 'employee'
+    username: '', first_name: '', last_name: '', role: 'Employee'
   });
   const [error, setError] = useState('');
   const { register } = useAuth();
