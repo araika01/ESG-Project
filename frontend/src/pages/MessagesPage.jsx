@@ -28,7 +28,9 @@ function MessagesPage() {
     if (!selected) return;
 
     const token = localStorage.getItem('access_token');
-    const wsUrl = `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/ws/chat/${selected.id}/?token=${token}`;
+    const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+
+    const wsUrl = `${protocol}://${window.location.host}${process.env.REACT_APP_WS_URL}/chat/${selected.id}/?token=${token}`;
     const socket = new WebSocket(wsUrl);
     socketRef.current = socket;
 
